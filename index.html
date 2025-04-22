@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CatchWork</title>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:wght@400;700&family=Exo+2:wght@400;700&display=swap"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-gray: #52555F;
+            --color-blue: #75DBCD;
+            --color-yellow: #EBFF78;
+            --color-dark: #343740;
+            --color-light: #FFFFFF;
+        }
+
+        body {
+            background: var(--color-dark);
+            font-family: 'Exo 2', sans-serif;
+            color: var(--color-light);
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: var(--color-gray);
+            border: none;
+            border-radius: 20px;
+            color: var(--color-light);
+        }
+
+        h1 {
+            font-family: 'Afacad', sans-serif;
+            color: var(--color-light);
+        }
+
+        h2 {
+            font-family: 'Afacad', sans-serif;
+            font-weight: normal;
+            color: var(--color-yellow);
+        }
+
+        h3 {
+            color: var(--color-light);
+        }
+
+        p {
+            color: var(--color-light);
+        }
+
+        .btn-primary {
+            background-color: var(--color-dark);
+            border: none;
+            padding: 12px 24px;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-blue);
+        }
+
+        a {
+            color: var(--color-blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--color-blue);
+            text-decoration: underline;
+        }
+
+        .form-control {
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .mascot-img {
+            max-width: 240px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container py-5" style="max-width: 800px;">
+    <div class="card mb-4 p-4">
+        <h1 class="display-4 mb-0">CatchWork</h1>
+        <h2>Selected AI – one swipe to apply</h2>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-12">
+            <div class="card h-100 p-4">
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center">
+                        <img src="assets/mascot.png" alt="CatchWork AI Dog Mascot" class="mascot-img">
+                    </div>
+                    <div class="col-md-8">
+                        <h3>Как это работает</h3>
+                        <p>
+                            CatchWork — это умный AI-помощник, который ищет работу вместо тебя.
+                            Представь, что у тебя есть верный цифровой пёсик, который днём и ночью роет интернет в
+                            поисках лучших вакансий именно для хозяина.
+                        </p>
+                        <p>
+                            Он анализирует сотни объявлений, фильтрует мусор и приносит тебе только то, что
+                            по-настоящему подходит.
+                            И если тебе приглянулось что-то - пишет сопроводительное письмо и дает советы.
+                            Всё, что тебе нужно — свайпнуть!
+                        </p>
+                        <p>
+                            CatchWork. Умный. Надёжный. С хвостом.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-8">
+            <div class="card h-100 p-4">
+                <h3>Будь первым!</h3>
+                <p>Сервис будет доступен для бета-тестирования через <span class="countdown fw-bold">30</span> дней.</p>
+                <form class="mt-auto" onsubmit="submitForm(event)">
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Your email" required/>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Join me</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 p-4 justify-content-center align-items-center">
+                <h3>Контакты</h3>
+                <p></p>
+                <p class="mb-2">Email: <a href="mailto:v@shmakov.me">v@shmakov.me</a></p>
+                <p class="mb-0">Telegram: <a href="https://t.me/shmakovva">@shmakovva</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const countdownEl = document.querySelector('.countdown');
+    const betaDate = new Date();
+    betaDate.setDate(betaDate.getDate() + 30);
+
+    function updateCountdown() {
+        const now = new Date();
+        const diff = Math.max(0, betaDate - now);
+        const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+        countdownEl.textContent = days;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    function submitForm(e) {
+        e.preventDefault();
+        const email = e.target.querySelector('input').value;
+        alert(`Спасибо! Мы свяжемся с вами по адресу: ${email}`);
+    }
+</script>
+</body>
+</html>
